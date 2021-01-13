@@ -1,11 +1,9 @@
-import { createStore } from 'redux';
-
-//import reducers from '../reducers.js'; //Import the reducer
+import { createStore, applyMiddleware } from 'redux';
 import  reducers from './reducers';
-
-//console.log(reducers)
-
+import counterMiddleware from './middleware/counterMiddleware'
 // Connect our store to the reducers
-const store = createStore(reducers);
+const store = createStore(
+    reducers,
+    applyMiddleware(counterMiddleware));
 
 export default store
